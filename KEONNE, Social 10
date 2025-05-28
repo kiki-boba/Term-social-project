@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tech Globalization: From Exploration to Today</title>
+  <style>
+    /* Fonts & Base */
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #b8e986, #96c7ff, #c8a2c8);
+      margin: 0;
+      padding: 20px;
+      color: #2a2a2a;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #5b8def;
+      color: white;
+      padding: 25px 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 2.8rem;
+      letter-spacing: 1.5px;
+      margin: 0;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 10;
+      overflow: hidden;
+    }
+
+    section h2 {
+      color: #4a4a8f;
+      font-weight: 700;
+      border-bottom: 3px solid #96c7ff;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    section h3 {
+      color: #3a5f7d;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      line-height: 1.5;
+      font-size: 1.1rem;
+      margin: 8px 0;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #444;
+      margin-top: 40px;
+      font-style: italic;
+      position: relative;
+      z-index: 10;
+    }
+
+    a {
+      color: #4a4a8f;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Boba bubble effect for titles */
+    h2::after {
+      content: " ●●●";
+      color: #6f42c1;
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: 6px;
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+
+    /* Cute Boba Cup Design */
+    .boba-cup {
+      position: absolute;
+      width: 80px;
+      height: 120px;
+      background: linear-gradient(180deg, #f8e6ff 0%, #e6d4ff 100%);
+      border-radius: 0 0 40px 40px;
+      border: 3px solid #9b59b6;
+      z-index: 2;
+      animation: bobaCupFloat 8s ease-in-out infinite;
+    }
+
+    .boba-cup::before {
+      content: '';
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 20px;
+      background: #ff9ff3;
+      border-radius: 50px;
+      border: 3px solid #9b59b6;
+    }
+
+    .boba-cup::after {
+      content: '';
+      position: absolute;
+      top: -8px;
+      right: -25px;
+      width: 20px;
+      height: 30px;
+      border: 3px solid #9b59b6;
+      border-radius: 0 15px 15px 0;
+      border-left: none;
+      background: transparent;
+    }
+
+    .boba-straw {
+      position: absolute;
+      top: -30px;
+      left: 60%;
+      width: 6px;
+      height: 50px;
+      background: linear-gradient(45deg, #ff6b9d, #feca57);
+      border-radius: 3px;
+      transform: rotate(15deg);
+    }
+
+    .boba-pearls {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 3px;
+      flex-wrap: wrap;
+      width: 60px;
+      justify-content: center;
+    }
+
+    .boba-pearl {
+      width: 8px;
+      height: 8px;
+      background: #8b4513;
+      border-radius: 50%;
+      animation: bobaJiggle 2s ease-in-out infinite;
+    }
+
+    .boba-pearl:nth-child(1) { animation-delay: 0s; }
+    .boba-pearl:nth-child(2) { animation-delay: 0.3s; }
+    .boba-pearl:nth-child(3) { animation-delay: 0.6s; }
+    .boba-pearl:nth-child(4) { animation-delay: 0.9s; }
+    .boba-pearl:nth-child(5) { animation-delay: 1.2s; }
+    .boba-pearl:nth-child(6) { animation-delay: 1.5s; }
+
+    /* Enhanced Boba bubbles floating in background */
+    .bubble1 { top: 50px; left: 10px; background: radial-gradient(circle, rgba(255, 192, 203, 0.8), rgba(147, 112, 219, 0.4)); }
+    .bubble2 { top: 200px; right: 20px; background: radial-gradient(circle, rgba(173, 216, 230, 0.8), rgba(75, 0, 130, 0.4)); }
+    .bubble3 { bottom: 150px; left: 30px; background: radial-gradient(circle, rgba(255, 218, 185, 0.8), rgba(255, 20, 147, 0.4)); }
+    .bubble4 { bottom: 60px; right: 60px; background: radial-gradient(circle, rgba(221, 160, 221, 0.8), rgba(138, 43, 226, 0.4)); }
+    .bubble5 { top: 300px; left: 80%; background: radial-gradient(circle, rgba(255, 182, 193, 0.8), rgba(199, 21, 133, 0.4)); }
+    .bubble6 { top: 450px; left: 15%; background: radial-gradient(circle, rgba(255, 240, 245, 0.8), rgba(186, 85, 211, 0.4)); }
+    .bubble7 { bottom: 300px; right: 15%; background: radial-gradient(circle, rgba(230, 230, 250, 0.8), rgba(148, 0, 211, 0.4)); }
+
+    /* Additional background bubbles */
+    .bubble8 { top: 120px; left: 60%; background: radial-gradient(circle, rgba(255, 228, 225, 0.7), rgba(255, 105, 180, 0.4)); }
+    .bubble9 { top: 400px; right: 40%; background: radial-gradient(circle, rgba(230, 255, 250, 0.7), rgba(72, 209, 204, 0.4)); }
+    .bubble10 { bottom: 400px; left: 70%; background: radial-gradient(circle, rgba(255, 250, 205, 0.7), rgba(255, 165, 0, 0.4)); }
+    .bubble11 { top: 600px; left: 5%; background: radial-gradient(circle, rgba(245, 245, 220, 0.7), rgba(219, 112, 147, 0.4)); }
+    .bubble12 { bottom: 100px; right: 30%; background: radial-gradient(circle, rgba(255, 239, 213, 0.7), rgba(205, 92, 92, 0.4)); }
+
+    /* Cute pastry decorations */
+    .sweet-decoration {
+      position: absolute;
+      z-index: 2;
+      animation: sweetFloat 12s ease-in-out infinite;
+    }
+
+    .donut {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(45deg, #ffb3ba, #ffdfba);
+      border-radius: 50%;
+      border: 8px solid #ff9999;
+      position: relative;
+    }
+
+    .donut::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+    .donut::after {
+      content: '✧ ✧ ✧';
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 8px;
+      color: #ff69b4;
+    }
+
+    .cupcake {
+      width: 30px;
+      height: 50px;
+      position: relative;
+    }
+
+    .cupcake::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 30px;
+      height: 25px;
+      background: linear-gradient(180deg, #d2b48c, #8b4513);
+      border-radius: 0 0 15px 15px;
+    }
+
+    .cupcake::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 35px;
+      height: 30px;
+      background: linear-gradient(180deg, #ffb6c1, #ff69b4);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      left: -2.5px;
+    }
+
+    .macaron {
+      width: 35px;
+      height: 20px;
+      background: linear-gradient(45deg, #e6e6fa, #dda0dd);
+      border-radius: 50px;
+      position: relative;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .macaron::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30px;
+      height: 4px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    /* Positioning for sweet decorations */
+    .sweet1 { top: 180px; right: 80px; }
+    .sweet2 { bottom: 350px; left: 50px; }
+    .sweet3 { top: 350px; right: 30px; }
+    .sweet4 { bottom: 180px; right: 100px; }
+    .sweet5 { top: 500px; left: 40%; }
+
+    @keyframes sweetFloat {
+      0%, 100% { transform: translateY(0) rotate(-3deg); }
+      50% { transform: translateY(-20px) rotate(3deg); }
+    }
+
+    /* Enhanced decorative elements for white sections */
+    section {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 10;
+      overflow: hidden;
+    }
+
+    /* Mini boba bubbles in corners */
+    section::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, rgba(255, 182, 193, 0.6), rgba(147, 112, 219, 0.3));
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      box-shadow: 0 0 5px rgba(255, 182, 193, 0.4);
+    }
+
+    section::after {
+      content: '';
+      position: absolute;
+      bottom: 15px;
+      left: 20px;
+      width: 15px;
+      height: 15px;
+      background: radial-gradient(circle, rgba(221, 160, 221, 0.6), rgba(138, 43, 226, 0.3));
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite reverse;
+      box-shadow: 0 0 5px rgba(221, 160, 221, 0.4);
+    }
+
+    /* Mini decorative elements inside sections */
+    .section-decoration {
+      position: absolute;
+      font-size: 12px;
+      opacity: 0.6;
+      animation: gentleFloat 10s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .mini-boba {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #8b4513;
+      border-radius: 50%;
+      opacity: 0.4;
+      animation: miniBobaFloat 8s ease-in-out infinite;
+    }
+
+    .mini-sweet {
+      position: absolute;
+      font-size: 14px;
+      opacity: 0.5;
+      animation: sweetTwinkle 6s ease-in-out infinite;
+    }
+
+    /* Special decorations for different sections */
+    section:nth-child(3)::before {
+      background: radial-gradient(circle, rgba(255, 218, 185, 0.7), rgba(255, 105, 180, 0.4));
+      animation-delay: -2s;
+    }
+
+    section:nth-child(4)::after {
+      background: radial-gradient(circle, rgba(173, 216, 230, 0.7), rgba(75, 0, 130, 0.4));
+      animation-delay: -4s;
+    }
+
+    section:nth-child(5)::before {
+      background: radial-gradient(circle, rgba(255, 240, 245, 0.7), rgba(186, 85, 211, 0.4));
+      animation-delay: -1s;
+    }
+
+    section:nth-child(6)::after {
+      background: radial-gradient(circle, rgba(230, 255, 250, 0.7), rgba(72, 209, 204, 0.4));
+      animation-delay: -3s;
+    }
+
+    section:nth-child(7)::before {
+      background: radial-gradient(circle, rgba(255, 250, 205, 0.7), rgba(255, 165, 0, 0.4));
+      animation-delay: -5s;
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(5px, -3px) rotate(2deg); }
+      50% { transform: translate(-3px, -8px) rotate(-1deg); }
+      75% { transform: translate(8px, -2px) rotate(1deg); }
+    }
+
+    @keyframes miniBobaFloat {
+      0%, 100% { transform: translateY(0); opacity: 0.3; }
+      50% { transform: translateY(-5px); opacity: 0.6; }
+    }
+
+    @keyframes sweetTwinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
+
+    /* Visuals - simple bar charts */
+    .chart-container {
+      margin-top: 30px;
+      background: #f0f5ff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: inset 0 0 10px #a0bfff;
+    }
+
+    .bar {
+      height: 25px;
+      border-radius: 12px;
+      margin: 8px 0;
+      color: white;
+      font-weight: 600;
+      padding-left: 15px;
+      line-height: 25px;
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      max-width: 100%;
+      position: relative;
+      transition: all 0.4s ease;
+    }
+
+    .bar-1 { background-color: #5b8def; width: 70%; }
+    .bar-2 { background-color: #6fa8dc; width: 55%; }
+    .bar-3 { background-color: #8e6fc1; width: 45%; }
+    .bar-4 { background-color: #7fb77e; width: 60%; }
+
+    .chart-title {
+      color: #3a5f7d;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Cute Boba Cups -->
+<div class="boba-cup boba-cup1">
+  <div class="boba-straw"></div>
+  <div class="boba-pearls">
+    <div class="boba-pearl"></div>
+    <div class="boba-pearl"></div>
+    <div class="boba-pearl"></div>
+    <div class="boba-pearl"></div>
+    <div class="boba-pearl"></div>
+    <div class="boba-pearl"></div>
+  </div>
+</div>
+
+<div class="boba-cup boba-cup2">
+  <div class="boba-straw"></div>
+  <div class="boba-pearls">
+    <div class="boba-pearl"></div>
+    <div class="boba-pearl"></div>
+    <div class="boba-pearl"></div>
+    <div class="boba-pearl"></div>
+    <div class="boba-pearl"></div>
+    <div class="boba-pearl"></div>
+  </div>
+</div>
+
+<!-- Enhanced Boba bubbles floating in background -->
+<div class="bubble bubble1 medium kawaii"></div>
+<div class="bubble bubble2 small"></div>
+<div class="bubble bubble3 large kawaii"></div>
+<div class="bubble bubble4 medium"></div>
+<div class="bubble bubble5 small kawaii"></div>
+<div class="bubble bubble6 medium"></div>
+<div class="bubble bubble7 large"></div>
+<div class="bubble bubble8 medium"></div>
+<div class="bubble bubble9 small"></div>
+<div class="bubble bubble10 large"></div>
+<div class="bubble bubble11 medium"></div>
+<div class="bubble bubble12 small"></div>
+
+<!-- Cute pastry decorations -->
+<div class="sweet-decoration sweet1">
+  <div class="donut"></div>
+</div>
+<div class="sweet-decoration sweet2">
+  <div class="cupcake"></div>
+</div>
+<div class="sweet-decoration sweet3">
+  <div class="macaron"></div>
+</div>
+<div class="sweet-decoration sweet4">
+  <div class="donut"></div>
+</div>
+<div class="sweet-decoration sweet5">
+  <div class="cupcake"></div>
+</div>
+
+<header>
+  <h1>The Impact of Technological Globalization<br>from the Age of Exploration to Present Day</h1>
+</header>
+
+<section>
+  <h2>Project Overview 🧋</h2>
+  <div class="section-decoration" style="top: 45px; right: 40px;">🧋</div>
+  <div class="mini-boba" style="top: 60px; left: 80%;"></div>
+  <div class="mini-boba" style="bottom: 30px; right: 60px;"></div>
+  <div class="mini-sweet" style="bottom: 40px; right: 30px;">🍡</div>
+  <p>This project explores how technological globalization has shaped the world from 1492 to today. We'll analyze key technologies, their global impacts, and how they connected cultures, economies, and societies throughout history.</p>
+</section>
+
+<section>
+  <h2>Objectives 🥤</h2>
+  <div class="section-decoration" style="top: 35px; right: 30px;">🍰</div>
+  <div class="mini-sweet" style="top: 70px; left: 85%;">🍭</div>
+  <div class="mini-boba" style="top: 90px; right: 50px;"></div>
+  <div class="mini-boba" style="bottom: 25px; left: 75%;"></div>
+  <div class="section-decoration" style="bottom: 45px; right: 25px;">🧁</div>
+  <ul>
+    <li>Understand what technological globalization means</li>
+    <li>Analyze important technologies across different times</li>
+    <li>Look at positive and negative effects on societies</li>
+    <li>Build research, writing, and presentation skills</li>
+    <li>Think critically about ethics in global technology use</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Unit 1: Historical Globalization 🌊</h2>
+  <div class="section-decoration" style="top: 40px; right: 35px;">🍮</div>
+  <div class="mini-sweet" style="top: 80px; left: 90%;">🍪</div>
+  <div class="mini-boba" style="top: 120px; right: 45px;"></div>
+  <div class="mini-boba" style="bottom: 80px; left: 80%;"></div>
+  <div class="mini-sweet" style="bottom: 40px; right: 40px;">🥮</div>
+  <div class="mini-boba" style="bottom: 60px; right: 70px;"></div>
+
+  <h3>What were the technologies? How did they work?</h3>
+  <p>The Age of Exploration relied on the compass for direction, the astrolabe for determining latitude using stars, accurate maps improved through cartography, and caravels light, fast ships that could sail against the wind.</p>
+
+  <h3>What were the positive effects of these technologies on globalization?</h3>
+  <p>These technologies made long distance sea travel possible, opening new trade routes and cultural exchanges, connecting continents, and expanding global trade networks.</p>
+
+  <h3>What were the negative consequences or challenges?</h3>
+  <p>They also enabled European colonization, which led to exploitation, cultural disruption, conflicts, and the beginning of the transatlantic slave trade.</p>
+
+  <h3>How did these technologies impact different regions differently?</h3>
+  <p>Europe grew economically and politically. Indigenous peoples in the Americas and Africa faced colonization, displacement, and resource extraction.</p>
+
+  <p><strong>Source:</strong> <a href="https://www.britannica.com/event/Age-of-Discovery" target="_blank">Britannica - Age of Discovery</a></p>
+</section>
+
+<section>
+  <h2>Unit 2: Sustainable Development 🌱</h2>
+  <div class="section-decoration" style="top: 35px; right: 40px;">🍡</div>
+  <div class="mini-sweet" style="top: 75px; left: 88%;">🧁</div>
+  <div class="mini-boba" style="top: 110px; right: 55px;"></div>
+  <div class="mini-boba" style="top: 150px; left: 85%;"></div>
+  <div class="mini-sweet" style="bottom: 120px; right: 30px;">🍰</div>
+  <div class="mini-boba" style="bottom: 80px; left: 90%;"></div>
+  <div class="mini-sweet" style="bottom: 45px; right: 50px;">🍭</div>
+
+  <h3>What key technologies contributed to the Industrial Revolution? How did they change society?</h3>
+  <p>The steam engine revolutionized factories and transport, while machines like the spinning jenny and mechanized looms transformed textile production, speeding up manufacturing and urbanization.</p>
+
+  <h3>What were the positive effects of these technologies on globalization?</h3>
+  <p>They boosted economic growth, increased production, and expanded global trade, spreading industrial ideas and goods worldwide.</p>
+
+  <h3>Negative consequences?</h3>
+  <p>They caused pollution, poor working conditions, child labor, and widened the gap between industrialized and non body industrialized countries.</p>
+
+  <h3>Regional impacts?</h3>
+  <p>Europe and North America industrialized rapidly, while some regions were exploited for resources or remained largely agrarian.</p>
+
+  <p><strong>Source:</strong> <a href="https://www.history.com/topics/industrial-revolution" target="_blank">History.com - Industrial Revolution</a></p>
+
+  <h3>What modern technologies are being used to combat environmental damage? Are they effective?</h3>
+  <p>Renewable energy (solar, wind), electric vehicles, and green building tech aim to reduce emissions and pollution.</p>
+  <p>While promising, challenges like cost, infrastructure, and political will affect their global effectiveness.</p>
+
+  <p><strong>Source:</strong> <a href="https://www.un.org/sustainabledevelopment/energy/" target="_blank">UN Sustainable Energy</a></p>
+</section>
+
+<section>
+  <h2>Unit 3: Identity & Culture 🌸</h2>
+  <div class="section-decoration" style="top: 40px; right: 30px;">🍮</div>
+  <div class="mini-sweet" style="top: 70px; left: 87%;">🥮</div>
+  <div class="mini-boba" style="top: 100px; right: 60px;"></div>
+  <div class="mini-boba" style="bottom: 70px; left: 85%;"></div>
+  <div class="mini-sweet" style="bottom: 40px; right: 35px;">🍪</div>
+  <div class="mini-boba" style="bottom: 100px; right: 80px;"></div>
+
+  <h3>How do modern communication devices influence cultures worldwide?</h3>
+  <p>Smartphones and the internet enable instant global communication, access to diverse ideas, and cultural exchange like never before.</p>
+
+  <h3>Positive effects?</h3>
+  <p>They help preserve languages, spread knowledge, and connect communities.</p>
+
+  <h3>Negative consequences?</h3>
+  <p>They can spread stereotypes, create cultural homogenization, and intensify social pressures.</p>
+
+  <h3>Regional impacts?</h3>
+  <p>Some regions use social media to preserve traditions, while others face cultural appropriation and loss of local customs.</p>
+
+  <p><strong>Source:</strong> <a href="https://www.ted.com/talks/how_social_media_shapes_our_identity" target="_blank">TED Talk - Social Media and Identity</a></p>
+</section>
+
+<section>
+  <h2>Unit 4: Citizenship & Ethical Considerations ⭐</h2>
+  <div class="section-decoration" style="top: 35px; right: 45px;">🧁</div>
+  <div class="mini-sweet" style="top: 80px; left: 90%;">🍰</div>
+  <div class="mini-boba" style="top: 120px; right: 50px;"></div>
+  <div class="mini-boba" style="bottom: 110px; left: 88%;"></div>
+  <div class="mini-sweet" style="bottom: 80px; right: 40px;">🍮</div>
+  <div class="mini-boba" style="bottom: 50px; left: 82%;"></div>
+  <div class="mini-sweet" style="bottom: 30px; right: 60px;">🍡</div>
+
+  <h3>How should global citizens ethically respond to technology in a globalized world?</h3>
+  <p>Global citizens should promote digital literacy, respect privacy, support fair access, and challenge misinformation to ensure technology benefits all fairly.</p>
+
+  <h3>What responsibilities do governments, corporations, and individuals have in managing technology’s effects?</h3>
+  <p>Governments must regulate data use, protect rights, and invest in infrastructure. Corporations should prioritize ethical innovation and transparency. Individuals need to use technology responsibly and advocate for ethical policies.</p>
+
+  <h3>Positive effects?</h3>
+  <p>When managed well, technology can empower democracy, education, and social justice worldwide.</p>
+
+  <h3>Negative consequences?</h3>
+  <p>Without ethics, tech can increase inequality, invade privacy, and spread harmful content.</p>
+
+  <h3>Regional impacts?</h3>
+  <p>Developed countries often lead tech regulation; developing regions may struggle with access and governance.</p>
+
+  <p><strong>Sources:</strong> 
+    <a href="https://www.un.org/en/global-issues/digital-cooperation" target="_blank">UN Digital Cooperation</a>, 
+    <a href="https://www.weforum.org/agenda/2020/01/ethical-tech-technology-responsibility/" target="_blank">World Economic Forum - Ethical Tech</a>
+  </p>
+</section>
+
+<!-- Visuals -->
+<section>
+  <h2>Project Visuals: Impact Summary Charts 📊🧋</h2>
+  <div class="section-decoration" style="top: 40px; right: 25px;">🧋</div>
+  <div class="mini-sweet" style="top: 70px; left: 92%;">🍭</div>
+  <div class="mini-boba" style="top: 100px; right: 40px;"></div>
+  <div class="mini-boba" style="bottom: 150px; left: 88%;"></div>
+  <div class="mini-sweet" style="bottom: 120px; right: 55px;">🥮</div>
+  <div class="mini-boba" style="bottom: 90px; left: 85%;"></div>
+  <div class="mini-sweet" style="bottom: 60px; right: 30px;">🍪</div>
+  <div class="mini-boba" style="bottom: 30px; right: 70px;"></div>
+
+  <div class="chart-container">
+    <div class="chart-title">Positive Impacts of Technologies (%)</div>
+    <div class="bar bar-1">Trade Expansion - 70%</div>
+    <div class="bar bar-2">Economic Growth - 55%</div>
+    <div class="bar bar-3">Cultural Exchange - 45%</div>
+    <div class="bar bar-4">Sustainable Tech Adoption - 60%</div>
+  </div>
+
+  <div class="chart-container" style="margin-top: 40px;">
+    <div class="chart-title">Negative Consequences (%)</div>
+    <div class="bar bar-3" style="background-color:#c76f7f; width: 65%;">Pollution & Exploitation - 65%</div>
+    <div class="bar bar-1" style="background-color:#b35b5b; width: 50%;">Cultural Loss - 50%</div>
+    <div class="bar bar-4" style="background-color:#9a87c1; width: 40%;">Inequality & Access - 40%</div>
+    <div class="bar bar-2" style="background-color:#7a83ab; width: 30%;">Privacy & Ethics Issues-30%</div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Tech Globalization Project | Designed with love &amp; boba bubbles
+</footer>
+
+</body>
+</html>
+<section style="text-align:center; margin-top: 40px; font-family: 'Quicksand', sans-serif; color: #4a4a8f;">
+  <h3 style="font-weight:700; font-size: 1.5rem;">Made with 💜 by Kiki</h3>
+  <p style="font-size: 1.1rem; color: #6f42c1; letter-spacing: 2px; margin-top: 5px;">
+    Bubbles & Boba Forever!
+  </p>
+</section>
